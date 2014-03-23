@@ -1,0 +1,21 @@
+# Huffman Compressing
+
+A simple compressing application using naive huffman encoding algorithm.
+
+
+## Procedure
+
+- First pass:
+
+  1. Read source content by bytes.
+  2. Count each byte's occurrence. (Hash map)
+
+- Encode:
+
+  1. Sort read bytes. (Priority queue)
+  2. Build huffman tree. (Huffman tree)
+
+- Second pass:
+
+  1. Replace each byte with generated code.
+  2. Generate encoding informations.
