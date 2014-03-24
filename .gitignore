@@ -1,1 +1,8 @@
 draft/*
+
+# build stuffs
+cmake_install.cmake
+Makefile
+CMakeFiles
+CMakeCache.txt
+*.a
