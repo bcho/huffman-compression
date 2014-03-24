@@ -7,4 +7,7 @@ struct code {
     int frequency;
 };
 
+// Only use lower byte.
+#define CODE_GET_REAL(x) (x & 0xFF)
+
 #endif
