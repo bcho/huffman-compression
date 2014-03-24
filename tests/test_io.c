@@ -12,22 +12,24 @@
 
 void test_read_file(char *filename)
 {
+    long size;
     char *content;
 
-    content = io_read_file(filename);
+    content = io_read_file(filename, &size);
     assert(content != NULL);
-    assert(strlen(content) != 0);
+    assert(size != 0);
     free(content);
 }
 
 void test_write_file()
 {
+    long size;
     char *content;
 
     io_write_file(TEST_PATH, TEST_CONTENT);
 
-    content = io_read_file(TEST_PATH);
-    assert(strcmp(TEST_CONTENT, content) == 0);
+    content = io_read_file(TEST_PATH, &size);
+    assert(strncmp(TEST_CONTENT, content, size) == 0);
     free(content);
 
     remove(TEST_PATH);

@@ -25,21 +25,19 @@ static inline long get_file_size(FILE *fp)
 /*
  * Read the whole file. (By allocating new buffer.)
  */
-char *io_read_file(const char *filename)
+char *io_read_file(const char *filename, long *size)
 {
-    long size;
     FILE *fp;
     char *buffer;
 
     fp = fopen(filename, "rb");
     assert(fp != NULL);
 
-    size = get_file_size(fp);
-    buffer = malloc(sizeof(char) * (size + 1));
+    *size = get_file_size(fp);
+    buffer = malloc(sizeof(char) * *size);
     assert(buffer != NULL);
 
-    fread(buffer, size, 1, fp);
-    buffer[size] = 0;
+    fread(buffer, *size, 1, fp);
 
     fclose(fp);
     return buffer;
