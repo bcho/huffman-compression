@@ -1,6 +1,6 @@
-#include "test.h"
 #include "assert.h"
-#include "../src/table.h"
+#include "test.h"
+#include "table.h"
 
 
 int main()
