@@ -1,4 +1,5 @@
 #include "assert.h"
+#include "code.h"
 #include "table.h"
 
 
@@ -15,6 +16,7 @@ void table_init()
 
 unsigned int table_get(const unsigned int key)
 {
+    assert(key >= 0);
     assert(key < TABLE_SIZE);
 
     return table[key];
@@ -22,6 +24,7 @@ unsigned int table_get(const unsigned int key)
 
 void table_set(const unsigned int key, unsigned int value)
 {
+    assert(key >= 0);
     assert(key < TABLE_SIZE);
 
     table[key] = value;
@@ -29,6 +32,7 @@ void table_set(const unsigned int key, unsigned int value)
 
 void table_inc(const unsigned int key)
 {
+    assert(key >= 0);
     assert(key < TABLE_SIZE);
 
     table[key] = table[key] + 1u;
